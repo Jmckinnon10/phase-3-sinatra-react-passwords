@@ -1,3 +1,5 @@
+require_relative './application_controller'
+
 class AccountsController < ApplicationController
   set :default_content_type, 'application/json'
 

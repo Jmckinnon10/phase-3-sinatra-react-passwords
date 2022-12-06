@@ -17,18 +17,18 @@ ActiveRecord::Schema.define(version: 2022_12_06_163605) do
   end
 
   create_table "passwords", force: :cascade do |t|
-    t.integer "account_id"
-    t.integer "user_id"
+    t.string "password_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_passwords_on_account_id"
-    t.index ["user_id"], name: "index_passwords_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "pin"
-    t.string "password"
+    t.string "pin"
+    t.integer "account_id"
+    t.integer "password_id"
+    t.index ["account_id"], name: "index_users_on_account_id"
+    t.index ["password_id"], name: "index_users_on_password_id"
   end
 
 end

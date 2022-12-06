@@ -7,3 +7,4 @@ class PasswordsController < ApplicationController
   end
 
 end
+

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :passwords
-  has_many :accounts, through: :passwords
+  belongs_to :password
+  belongs_to :account
 
 end
