@@ -5,14 +5,16 @@ class AccountsController < ApplicationController
 
   get "/accounts" do 
     accounts = Account.all
-    account.to_json
+    accounts.to_json(include: :passwords)
   end
+  
+  # get "/accounts/:id" do 
+  #   accounts = Account.find(params[:id])
+  #   accounts.to_json
+  # end
 
-
-
-  get "/accounts/:websites" do 
-    accounts = Account.find(params[:websites])
-    accounts.to_json
-  end
-
+  # get "/accounts/:websites" do 
+  #   accounts = Account.find(params[:websites])
+  #   accounts.to_json
+  # end
 end
