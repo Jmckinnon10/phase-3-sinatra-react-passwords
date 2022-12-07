@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     users.to_json
   end
 
-  get "/users" do 
-    users = User.find(params[:id])
+  get "/users/:name" do 
+    users = User.find(params[:name])
     users.to_json
   end
 end

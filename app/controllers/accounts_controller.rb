@@ -8,8 +8,10 @@ class AccountsController < ApplicationController
     account.to_json
   end
 
-  get "/accounts/:id" do 
-    accounts = Account.find(params[:id])
+
+
+  get "/accounts/:websites" do 
+    accounts = Account.find(params[:websites])
     accounts.to_json
   end
 
