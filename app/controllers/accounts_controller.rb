@@ -12,12 +12,14 @@ class AccountsController < ApplicationController
   end
 
   delete '/accounts/:id' do 
-    user_account = Account.find(params[:id])
-    user_account.destroy
-    user_account.to_json
+    account = Account.find(params[:id]) 
+    account.destroy
+    account.to_json
   end
 
-  post '/accounts/:id' do 
+  post '/accounts/:id' do
+    account = Account.create(website: wesbite, username: username, password: password)
+    binding.pry
   end
 end
 
