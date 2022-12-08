@@ -5,16 +5,19 @@ class AccountsController < ApplicationController
 
   get "/accounts" do 
     accounts = Account.all
-    accounts.to_json(include: :passwords)
+    accounts.to_json(only: [:websites, :id], include: { passwords: {
+      only: [:password_name, :id], include: {
+        users: {only: [:name, :id]}}
+    }})
   end
-  
-  # get "/accounts/:id" do 
-  #   accounts = Account.find(params[:id])
-  #   accounts.to_json
-  # end
 
-  # get "/accounts/:websites" do 
-  #   accounts = Account.find(params[:websites])
-  #   accounts.to_json
-  # end
+  delete '/accounts/:id' do 
+    user_account = Account.find(params[:id])
+    user_account.destroy
+    user_account.to_json
+  end
+
+  post '/accounts/:id' do 
+  end
 end
+

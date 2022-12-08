@@ -8,9 +8,9 @@ netflix = Account.create(websites: "Netflix")
 hbomax = Account.create(websites: "HBOmax")
 instagram = Account.create(websites: "Instagram")
 # Seed your database here
-p1 = Password.create(password_name: "jmac")
-p2 = Password.create(password_name: "password")
-p3 = Password.create(password_name: "password")
+p1 = Password.create(password_name: "pass1")
+p2 = Password.create(password_name: "pass2")
+p3 = Password.create(password_name: "pass3")
 
 
 
