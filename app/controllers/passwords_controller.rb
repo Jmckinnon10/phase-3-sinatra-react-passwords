@@ -5,6 +5,5 @@ class PasswordsController < ApplicationController
     passwords = Password.all
     passwords.to_json
   end
-
 end
 

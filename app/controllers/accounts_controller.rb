@@ -13,13 +13,18 @@ class AccountsController < ApplicationController
 
   delete '/accounts/:id' do 
     account = Account.find(params[:id]) 
+    account_password = account.passwords
+    puts account_password
+    account_password.each {|password| password.destroy}
     account.destroy
     account.to_json
+   
   end
 
   post '/accounts/:id' do
-    account = Account.create(website: wesbite, username: username, password: password)
-    binding.pry
+    account = Account.create()
+
+
   end
 end
 
