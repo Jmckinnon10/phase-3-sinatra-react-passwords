@@ -21,10 +21,27 @@ class AccountsController < ApplicationController
    
   end
 
-  post '/accounts/:id' do
-    account = Account.create()
+  post '/accounts' do
+    puts 'post request'
+    account = Account.create(
+      websites: params[:websites]
+    )
+    
+    password = Password.create(
+      password_name: params[:password]
+    )
 
+    user = User.create(
+      name: params[:username], 
+      pin: params[:pin], 
+      account_id: account.id,
+      password_id: password.id
+    )
+    
 
+    account.to_json
+    password.to_json
+    user.to_json
   end
 end
 
